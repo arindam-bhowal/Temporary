@@ -7,6 +7,8 @@ const Todo = () => {
   const [allTasks, setAllTasks] = useState([])
   const [task, setTask] = useState({ title: '', description: '', isCompleted: '' })
 
+  const [updating, setUpdating] = useState(false)
+
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem('Student'))
     const getUserDetails = async () => {
@@ -21,7 +23,7 @@ const Todo = () => {
     getUserDetails()
 
     localStorage.getItem('tasks') && setAllTasks(JSON.parse(localStorage.getItem('tasks')))
-  }, [])
+  }, [updating])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -30,21 +32,22 @@ const Todo = () => {
     setTask({ ...task, isCompleted: false })
     allTasks.push(task)
 
-    JSON.parse(localStorage.setItem('tasks', allTasks))
+      (localStorage.setItem('tasks', JSON.stringify(allTasks)))
 
     const updateUser = async () => {
       await axios.put(`${process.env.REACT_APP_HOST}/update/${user._id}`, {
         todo: allTasks,
         headers: {
-          Authorization: 'Bearer ' + userInfo.accessToken 
+          Authorization: 'Bearer ' + userInfo.accessToken
         }
       })
     }
 
     // updateUser()
-    
+
     // setTask({ ...task, title: ', description: '', isCompleted: '' })
   }
+
 
   return (
     <>
@@ -96,7 +99,8 @@ const Todo = () => {
                             <p className="card__text">{tsk.description} </p>
                             <button className="btn btn--block card__btn" onClick={() => {
                               tsk.isCompleted = true
-                              console.log(tsk)
+                              setUpdating(!updating)
+                              localStorage.setItem('tasks', JSON.stringify(allTasks))
                             }}>Done</button>
 
                             {/* <button className="btn btn--block card__btn">Edit</button> */}
@@ -123,7 +127,11 @@ const Todo = () => {
                           <div className="card__content">
                             <div className="card__title">{tsk.title}</div>
                             <p className="card__text"> {tsk.description} </p>
-                            <button className="btn btn--block card__btn" onClick={() => tsk.isCompleted = false}>UnDone</button>
+                            <button className="btn btn--block card__btn" onClick={() => {
+                               tsk.isCompleted = false
+                               localStorage.setItem('tasks', JSON.stringify(allTasks))
+                               setUpdating(!updating)
+                            }}>UnDone</button>
                             {/* <button className="btn btn--block card__btn">Edit</button>  */}
                           </div>
                         </div>

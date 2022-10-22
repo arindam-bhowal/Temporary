@@ -1,9 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import Sidebar from '../../../components/sidebar/Sidebar'
 import './mainResume.scss'
 
 const MainResume = () => {
     return (
-
+        <>
+    <Sidebar />
         <div className="mainResume">
 
             <div className="container">
@@ -11,19 +14,19 @@ const MainResume = () => {
                 <div className="card-container">
 
                     <div className="card">
-                        <a href="template4.html"> <img src="./Template-Images/template1.png" alt="" width="300px" height="370px" /> </a>
+                        <Link to='/resume/template1'> <img src="https://prandeep10.github.io/Portfolio-Website/template1.png" alt="" width="300px" height="370px" /> </Link>
                     </div>
 
                     <div className="card">
-                        <a href="template1.html"> <img src="Template-Images/template1.png" alt="" width="300px" height="370px" /> </a>
+                        <Link to="/resume/template2"> <img src="https://prandeep10.github.io/Portfolio-Website/template2.png" alt="" width="300px" height="370px" /> </Link>
                     </div>
 
                     <div className="card">
-                        <a href="template2.html"> <img src="Template-Images/template2.png" alt="" width="300px" height="370px" /> </a>
+                        <Link to="/resume/template3"> <img src="https://prandeep10.github.io/Portfolio-Website/template3.png" alt="" width="300px" height="370px" /> </Link>
                     </div>
 
                     <div className="card">
-                        <a href="template3.html"> <img src="Template-Images/template4.png" alt="" width="300px" height="370px" /> </a>
+                        <Link to="/resume/template4"> <img src="https://prandeep10.github.io/Portfolio-Website/template4.png" alt="" width="300px" height="370px" /> </Link>
                     </div>
 
                 </div>
@@ -31,6 +34,7 @@ const MainResume = () => {
             </div>
 
         </div>
+        </>
     )
 }
 

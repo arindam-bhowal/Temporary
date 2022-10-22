@@ -3,7 +3,7 @@ import './template2.scss'
 
 const TemplateTwo = () => {
   return (
-    <div>
+    <div className='template2'>
             <div class="resume" contenteditable="true">
         <div class="base">
           <div class="profile">
