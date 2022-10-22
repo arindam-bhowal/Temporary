@@ -4,7 +4,7 @@ import axios from 'axios'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 
@@ -60,6 +60,10 @@ const Login = () => {
                     value={creds.password}
                     onChange={(e) => setCreds({ ...creds, password: e.target.value })}
                 />
+                <p>New Here ? 
+
+                    <Link to = '/register' > Register Now </Link>
+                </p>
                 <Button
                     variant="contained"
                     color="primary"

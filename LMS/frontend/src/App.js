@@ -18,10 +18,12 @@ function App() {
       <Routes>
       <Route path="/" element={<Dashboard/>} />
       <Route path="/todo" element={<Todo/>} />
-        <Route path="/register" element={<Register/>} />
-        <Route path="/login" element={<Login/>} />
+      
         <Route path="/resume" element={<MainResume/>} />
         <Route path="/resume/template1" element={<TemplateOne/>} />
+
+        <Route path="/register" element={<Register/>} />
+        <Route path="/login" element={<Login/>} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './register.scss'
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -120,6 +120,10 @@ const Register = () => {
                     value={creds.password}
                     onChange={(e) => setCreds({ ...creds, password: e.target.value })}
                 />
+                 <p>Already havan account ? 
+
+<Link to = '/link' > Login Now </Link>
+</p>
                 <Button
                     variant="contained"
                     color="primary"

@@ -1,12 +1,11 @@
 import {
     ChevronRightOutlined,
-    DashboardOutlined,
-    ShowChart,
-    Layers,
     LogoutOutlined,
-    Quiz,
-    LocalFireDepartment,
-    Co2,
+    Home,
+    Work,
+    Book,
+    Pages,
+    Handshake,
   } from "@mui/icons-material";
   import { Button } from "@mui/material";
   import { useState } from "react";
@@ -50,31 +49,40 @@ import {
   
                 <li className="nav-link">
                   <Link to="/">
-                    <Layers className="sidebar-icon" />
+                    <Home className="sidebar-icon" />
                     <span className="text nav-text">Dashboard</span>
                   </Link>
                 </li>
   
                 <li className="nav-link">
-                  <Link to="/charts">
-                    <ShowChart className="sidebar-icon" />
+                  <Link to="/todo">
+                    <Work className="sidebar-icon" />
                     <span className="text nav-text">Todo</span>
                   </Link>
                 </li>
   
                 <li className="nav-link">
-                  <Link to="/quiz">
-                    <Quiz className="sidebar-icon" />
+                  <Link to="/blogs">
+                    <Book className="sidebar-icon" />
                     <span className="text nav-text">Blogs</span>
                   </Link>
                 </li>
                 
                 <li className="nav-link">
-                  <Link to="/emission">
-                    <Co2 className="sidebar-icon" />
+                  <Link to="/resume">
+                    <Pages className="sidebar-icon" />
                     <span className="text nav-text">Resume Generator</span>
                   </Link>
                 </li>
+
+                <li className="nav-link">
+                  <a href="https://no-nokol.herokuapp.com/">
+                    <Handshake className="sidebar-icon" />
+                    <span className="text nav-text">Plagiarism Checker</span>
+                  </a>
+                </li>
+
+
               </ul>
             </div>
             <div className="bottom-content">
