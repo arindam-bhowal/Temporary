@@ -1,5 +1,8 @@
 .login {
-
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10em;
     .formStyle {
         margin: "0px auto";
         padding: "30px";
@@ -9,5 +12,16 @@
 
     .spacing {
         margin-top: "20px";
+    }
+    .bdy {
+        padding-left: 0;
+    }
+    .Heading-Form{
+        text-align: center;
+        margin-bottom: 1em;
+    }
+    .spacing {
+        margin: 1em;
+        width: 100%;
     }
 }

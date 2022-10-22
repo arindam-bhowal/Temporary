@@ -1,5 +1,8 @@
 .register {
-
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 3em;
     .formStyle {
         margin: "0px auto";
         padding: "30px";
@@ -9,5 +12,17 @@
 
     .spacing {
         margin-top: "20px";
+    }
+    .bdy {
+        padding-left: 0;
+        width: 40%;
+    }
+    .Heading-Form{
+        text-align: center;
+        // margin-bottom: em;
+    }
+    .spacing {
+        margin: .5em;
+        width: 100%;
     }
 }

@@ -34,45 +34,49 @@ const Login = () => {
 
     return (
         <div className="login">
-            <form
-                noValidate
-                autoComplete="off"
-                className="formStyle"
-                onSubmit={handleSubmit}
-            >
-                <Typography variant="h5">signIn;</Typography>
-                <TextField
-                    className="spacing"
-                    id="enter-email"
-                    label="enterEmail"
-                    variant="outlined"
-                    fullWidth
-                    value={creds.email}
-                    onChange={(e) => setCreds({ ...creds, email: e.target.value })}
-                />
-                <TextField
-                    className="spacing"
-                    id="enter-password"
-                    type="password"
-                    label="enterPassword"
-                    variant="outlined"
-                    fullWidth
-                    value={creds.password}
-                    onChange={(e) => setCreds({ ...creds, password: e.target.value })}
-                />
-                <p>New Here ? 
-
-                    <Link to = '/register' > Register Now </Link>
-                </p>
-                <Button
-                    variant="contained"
-                    color="primary"
-                    className="spacing"
-                    type="submit"
+            {/* <div className="left"></div> */}
+            <div className="bdy">
+                <form
+                    noValidate
+                    autoComplete="off"
+                    className="formStyle"
+                    onSubmit={handleSubmit}
                 >
-                    SignIn
-                </Button>
-            </form>
+                    <Typography className="Heading-Form" variant="h3">Sign In</Typography>
+                    <TextField
+                        className="spacing"
+                        id="enter-email"
+                        label="Enter Email ID"
+                        variant="outlined"
+                        fullWidth
+                        value={creds.email}
+                        onChange={(e) => setCreds({ ...creds, email: e.target.value })}
+                    />
+                    <TextField
+                        className="spacing"
+                        id="enter-password"
+                        type="password"
+                        label="Enter Password"
+                        variant="outlined"
+                        fullWidth
+                        value={creds.password}
+                        onChange={(e) => setCreds({ ...creds, password: e.target.value })}
+                    />
+                    <p>New Here ?
+
+                        <Link to='/register' > Register Now </Link>
+                    </p>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        className="spacing"
+                        type="submit"
+                    >
+                        SignIn
+                    </Button>
+                </form>
+            </div>
+            {/* <div className="right"></div> */}
         </div>
     );
 };
