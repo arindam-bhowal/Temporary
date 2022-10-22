@@ -47,6 +47,7 @@ const Register = () => {
 
     return (
         <div className="register">
+            <div className="bdy">
             <form
                 noValidate
                 autoComplete="off"
@@ -54,7 +55,7 @@ const Register = () => {
                 onSubmit={handleSubmit}
             >
 
-                <Typography variant="h5">Sign Up;</Typography>
+                <Typography className="Heading-Form" variant="h4">Sign Up</Typography>
                 <TextField
                     className="spacing"
                     label="Enter Name"
@@ -129,6 +130,7 @@ const Register = () => {
                     Sign Up
                 </Button>
             </form>
+            </div>
         </div>
     );
 };
