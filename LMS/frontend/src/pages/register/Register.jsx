@@ -121,7 +121,7 @@ const Register = () => {
                     value={creds.password}
                     onChange={(e) => setCreds({ ...creds, password: e.target.value })}
                 />
-                 <p>Already havan account ? 
+                 <p>Already havan account ?x 
 
 <Link to = '/link' > Login Now </Link>
 </p>

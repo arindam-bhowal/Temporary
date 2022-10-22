@@ -13,6 +13,7 @@ const studentSchema = new mongoose.Schema({
     address: {type: String},
     phoneNumber: {type: Number, required: true},
     semester : {type: Number, required: true},
+    todo: Array,
     // assignments: Array,
     // examinations : Array,
     // attendence : Array,

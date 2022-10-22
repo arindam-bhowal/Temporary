@@ -131,9 +131,6 @@ img {
   margin-bottom: 1.25rem;
 }
 
-.bdy{
-  padding-left: 12em;
-}
 .formed{
   li{
     list-style: none;
@@ -149,4 +146,11 @@ img {
   margin-top: 5px;
   border: none;
   border-bottom: 1px solid;
+}
+
+.dashBody{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }

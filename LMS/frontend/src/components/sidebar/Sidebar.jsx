@@ -6,6 +6,7 @@ import {
     Book,
     Pages,
     Handshake,
+    Dashboard,
   } from "@mui/icons-material";
   import { Button } from "@mui/material";
   import { useState } from "react";
@@ -46,10 +47,17 @@ import {
           <div className="menu-bar">
             <div className="menu">
               <ul className="menu-links">
+
+              <li className="nav-link">
+                  <a href="#">
+                    <Home className="sidebar-icon" />
+                    <span className="text nav-text">Home</span>
+                  </a>
+                </li>
   
                 <li className="nav-link">
                   <Link to="/">
-                    <Home className="sidebar-icon" />
+                    <Dashboard className="sidebar-icon" />
                     <span className="text nav-text">Dashboard</span>
                   </Link>
                 </li>
@@ -61,12 +69,12 @@ import {
                   </Link>
                 </li>
   
-                <li className="nav-link">
+                {/* <li className="nav-link">
                   <Link to="/blogs">
                     <Book className="sidebar-icon" />
                     <span className="text nav-text">Blogs</span>
                   </Link>
-                </li>
+                </li> */}
                 
                 <li className="nav-link">
                   <Link to="/resume">
@@ -76,7 +84,7 @@ import {
                 </li>
 
                 <li className="nav-link">
-                  <a href="https://no-nokol.herokuapp.com/">
+                  <a href="https://nitsplag.herokuapp.com/">
                     <Handshake className="sidebar-icon" />
                     <span className="text nav-text">Plagiarism Checker</span>
                   </a>
