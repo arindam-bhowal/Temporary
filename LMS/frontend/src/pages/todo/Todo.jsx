@@ -6,6 +6,7 @@ const Todo = () => {
   const [user, setUser] = useState()
   const [allTasks, setAllTasks] = useState([])
   const [task, setTask] = useState({ title: '', description: '', isCompleted: '' })
+
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem('Student'))
     const getUserDetails = async () => {
@@ -15,14 +16,33 @@ const Todo = () => {
         }
       })
       setUser(reqUser.data)
+      // reqUser.todo && setAllTasks(reqUser.todo)
     }
     getUserDetails()
+
+    localStorage.getItem('tasks') && setAllTasks(JSON.parse(localStorage.getItem('tasks')))
   }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    const userInfo = JSON.parse(localStorage.getItem('Student'))
+
     setTask({ ...task, isCompleted: false })
     allTasks.push(task)
+
+    JSON.parse(localStorage.setItem('tasks', allTasks))
+
+    const updateUser = async () => {
+      await axios.put(`${process.env.REACT_APP_HOST}/update/${user._id}`, {
+        todo: allTasks,
+        headers: {
+          Authorization: 'Bearer ' + userInfo.accessToken 
+        }
+      })
+    }
+
+    // updateUser()
+    
     // setTask({ ...task, title: ', description: '', isCompleted: '' })
   }
 
@@ -35,11 +55,13 @@ const Todo = () => {
         <br />
         <span className="CourseSemBranch">{user && user.courseName}. {user && user.semester} - {user && user.deptName}</span>
       </div>
-      <div className="dashBody">
-        <div className="dashBody__content">
 
-          <div className="flexabout">
-          </div>
+
+      <div className="dashBody">
+        <div className="dashBody__contentTodo">
+
+          {/* <div className="flexabout">
+          </div> */}
           {/* <h3>Actice tasks</h3> */}
           <div className='bdy'>
             <div className="formed">
@@ -72,8 +94,9 @@ const Todo = () => {
                           <div className="card__content">
                             <div className="card__title">{tsk.title}</div>
                             <p className="card__text">{tsk.description} </p>
-                            <button className="btn btn--block card__btn" onClick={()=>{tsk.isCompleted=true
-                            console.log(tsk)
+                            <button className="btn btn--block card__btn" onClick={() => {
+                              tsk.isCompleted = true
+                              console.log(tsk)
                             }}>Done</button>
 
                             {/* <button className="btn btn--block card__btn">Edit</button> */}
@@ -91,7 +114,7 @@ const Todo = () => {
 
               <h3>Completed tasks</h3>
               <ul className="cards">
-              {
+                {
                   allTasks.filter(task => task.isCompleted === true).map(tsk => {
                     return (
                       <li className="cards__item">
